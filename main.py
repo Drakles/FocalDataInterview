@@ -3,8 +3,6 @@ import pandas as pd
 from datetime import date
 import re
 
-import os
-
 
 def normalise_empty_values(df):
     # The data science pipeline expects that NULL values are coded in a
