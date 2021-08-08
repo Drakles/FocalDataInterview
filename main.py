@@ -165,3 +165,4 @@ if __name__ == '__main__':
     df = append_bad_responded_flag(df)
 
     df.to_csv('./data/output/final_output.csv')
+    print('Cleaning finished successfully')
