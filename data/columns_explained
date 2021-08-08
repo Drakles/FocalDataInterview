@@ -1,0 +1,98 @@
+ID - unique identifier for respondent and survey
+is_preview - Boolean values Unknown meaning
+survey_id - id of the survey
+respondent_id - id of the respondent
+age - age of the respondent
+postcode - postcode of the respondent
+start_time - start time of the survey
+end_time - end time of the survey
+
+Q0 - Which country do you live in?
+Q1 - What is your gender
+Q2 - What is the highest level of education youve attained
+Q3 What region of the UK do you live in
+Q4 What is your postcode? For example, if your postcode is SW1A 1AA, please
+enter SW1A 1 - the first part of the postcode and the first digit of the second
+part.
+Q5 - How did you vote in the 2016 EU Referendum
+Q6 - Did you vote in the 2019 General Election
+Q7 - If so, how did you vote in the 2019 General Election
+Q8 - How did you vote in the 2017 General Election
+Q9 - If an election were held tomorrow, which party, if any, would you vote for
+Q10 - Overall, do you approve or disapprove of the Government’s performance
+
+Answers for questions from Q11 to Q26 are in scale of 0 to 100 indicating how
+warmly
+responder feel towards the subject of the question with 0 meaning completely cold, 100 meaning completely warm
+
+
+Q11  Conservatives,
+Q12  Labour,
+Q13  Liberal Democrats,
+Q14  Brexit Party,
+Q15  Greens,
+Q16  Scottish National Party,
+Q30  Plaid Cymru,
+Q18  Boris Johnson, the Prime Minister,
+Q19  Rishi Sunak, the Chancellor,
+Q20  Matt Hancock, the Health Secretary,
+Q21  Priti Patel, the Home Secretary,
+Q22  Dominic Raab, the Foreign Secretary,
+Q23  Sir Keir Starmer, the Leader of the Opposition,
+Q24  Nicola Sturgeon, the First Minister of Scotland,
+Q25  Nigel Farage, Leader of the Brexit Party,
+Q26  Sir Ed Davey, Acting Leader of the Liberal Democrats,
+
+
+Q27 Do you know the name of your current Member of Parliament
+Q28 Do you approve of the performance of your local MP
+Q29 Have you received any communication from your local MP in the past month?
+(eg. leaflets, adverts, door-knocking),
+
+For questions from Q30 to  responders were asked to rank the issue in
+order of the importance for the country with 1 as the most important and 8 as
+the least important
+
+
+Q30 Britain leaving the EU,
+Q31 Education and schools,
+Q32 Helping the country recover from Covid-19,
+Q33 Jobs and the economy,
+Q34 Protecting the environment / climate change,
+Q35 Ranked 1st,
+Q36 Ranked 2nd,
+Q37 Ranked 3rd,
+Q38 Ranked 4th,
+Q39 Ranked 5th,
+Q40 Ranked 6th,
+Q41 Ranked 7th,
+Q42 Ranked 8th,
+Q43 The NHS and social care,
+Q44 The level of immigration,
+Q45 Transport and infrastructure (eg. roads, trains, bus routes),
+
+For questions from Q45 to Q60 responders were asked to rank the issue in
+order of the importance for his/her local area with 1 as the most important and
+8 as the least important
+
+Q46 Britain leaving the EU,
+Q47 Education and schools,
+Q48 Helping your area recover from Covid-19,
+Q49 Jobs and the economy,
+Q50 Protecting the environment / climate change,
+Q51 Ranked 1st,
+Q52 Ranked 2nd,
+Q53 Ranked 3rd,
+Q54 Ranked 4th,
+Q55 Ranked 5th,
+Q56 Ranked 6th,
+Q57 Ranked 7th,
+Q58 Ranked 8th,
+Q59 The NHS and social care,
+Q60 The level of immigration,
+Q61 Transport and infrastructure (eg. roads, trains, bus routes),
+
+Q62 In which region of the UK do you reside
+Q63 What is your year of birth
+
+is_bad_respondent - indicator of low quality responses
