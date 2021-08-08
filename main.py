@@ -52,7 +52,7 @@ def rename_columns(df):
     return df
 
 
-def convert_year_birt_to_age(df):
+def convert_year_to_age(df):
     # Convert the year of birth column into an “age” column
     # (i.e. year_of_birth: 1990 => age: 30)
     df.insert(loc=4, column='age',
@@ -106,7 +106,7 @@ def max_range(val):
     return val
 
 
-def append_bad_responded_flag(df):
+def append_bad_responder_flag(df):
     # In adding a “is_bad_respondent” flag to a row of the survey we are
     # stating that this respondent’s responses cannot be relied upon as
     # credible
@@ -157,10 +157,10 @@ if __name__ == '__main__':
     df = unique_rows(df)
     df = drop_all_empty_columns(df)
     df = rename_columns(df)
-    df = convert_year_birt_to_age(df)
+    df = convert_year_to_age(df)
     df = convert_postcodes(df, './data/postcode_lookup.csv')
     df = reformat_follow_ups(df)
-    df = append_bad_responded_flag(df)
+    df = append_bad_responder_flag(df)
 
     df.to_csv('./data/output/final_output.csv')
     print('Cleaning finished successfully')
