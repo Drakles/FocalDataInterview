@@ -1,5 +1,4 @@
 # Survey cleaning
-This is a simple project for the interview process
 
 ## Usage
 To build the docker image and run it simply execute:
@@ -13,7 +12,7 @@ In order to run image without build execute:
 
 Please make sure to have docker installed
 
-To run the script in your local python environment please make sure every 
+Alternatively to run the script in your local python environment please make sure every 
 required package included in requirements.txt is installed or install it 
 executing: 
 ```pip install -r requirements.txt```
