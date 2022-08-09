@@ -5,9 +5,8 @@ import re
 
 
 def normalise_empty_values(df):
-    # The data science pipeline expects that NULL values are coded in a
-    # consistent fashion. Transform all missing values such that they are
-    # consistent with one another
+    # Null values should be coded in a consistent fashion.
+    # Transform all missing values to np.NaN
     df = df.replace(r'^\s*$', np.NaN, regex=True)
 
     if not df[df.columns[1:]].all().any():
@@ -19,7 +18,7 @@ def normalise_empty_values(df):
 def unique_rows(df):
     # De-duplicate the data such that every row is unique.
     ids = ['survey_id', 'respondent_id']
-    # drop rows with empty survey id or resdpondent id
+    # drop rows with empty survey id or respondent id
     df.dropna(subset=ids, inplace=True)
     # drop duplicates
     df.drop_duplicates(subset=ids, keep='last', inplace=True)
@@ -78,13 +77,12 @@ def convert_postcodes(df, lookup_table_path):
 
 
 def reformat_follow_ups(df):
-    # You will see that certain questions are follow-ups, and only get asked
-    # according to the response to the previous question (“If you answered
-    # yes, to the previous question - would you ever ...?”). In these cases
-    # please combine the two such that the “no” response (in this case)
-    # appears in the follow-up question, rather than the follow-up column
-    # containing missing values for those people to whom the question was not
-    # presented.
+    # Certain questions are follow-ups, and only get asked according to the response
+    # to the previous question (“If you answered yes, to the previous question -
+    # would you ever ...?”). In these cases we combine the two such that the “no”
+    # response (in this case) appears in the follow-up question, rather than the
+    # follow-up column containing missing values for those people to whom the
+    # question was not presented.
     df.loc[df.Q6.str.contains('No', flags=re.IGNORECASE, regex=True, na=False),
            ['Q7']] = 'no'
 
@@ -106,10 +104,7 @@ def max_range(val):
     return val
 
 
-def append_bad_responder_flag(df):
-    # In adding a “is_bad_respondent” flag to a row of the survey we are
-    # stating that this respondent’s responses cannot be relied upon as
-    # credible
+def append_bad_respondent_flag(df:pd.DataFrame)->pd.DataFrame:
     flag = 'is_bad_respondent'
     df[flag] = False
 
@@ -152,15 +147,19 @@ def append_bad_responder_flag(df):
 
 
 if __name__ == '__main__':
-    df_raw = pd.read_csv('./data/raw_survey.csv')
+    raw_survey_data_path = './data/raw_survey.csv'
+    postcode_lookup_path = './data/postcode_lookup.csv'
+    output_file_path = './data/output/final_output.csv'
+
+    df_raw = pd.read_csv(raw_survey_data_path)
     df = normalise_empty_values(df_raw)
     df = unique_rows(df)
     df = drop_all_empty_columns(df)
     df = rename_columns(df)
     df = convert_year_to_age(df)
-    df = convert_postcodes(df, './data/postcode_lookup.csv')
+    df = convert_postcodes(df, postcode_lookup_path)
     df = reformat_follow_ups(df)
-    df = append_bad_responder_flag(df)
+    df = append_bad_respondent_flag(df)
 
-    df.to_csv('./data/output/final_output.csv')
+    df.to_csv(output_file_path)
     print('Cleaning finished successfully')
